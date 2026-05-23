@@ -40,13 +40,13 @@ export default function Projects() {
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
 
   return (
-    <section ref={containerRef} className="py-32 px-4 md:px-10 relative z-20 transition-colors duration-500">
+    <section ref={containerRef} className="py-20 md:py-32 px-4 md:px-10 relative z-20 transition-colors duration-500">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-5xl md:text-8xl font-bold mb-20 tracking-tighter">
+        <h2 className="text-4xl md:text-8xl font-bold mb-12 md:mb-20 tracking-tighter">
           SELECTED <br/> WORKS
         </h2>
 
-        <div className="flex flex-col gap-32">
+        <div className="flex flex-col gap-20 md:gap-32">
           {projects.map((project, index) => (
             <ProjectCard key={project.id} project={project} index={index} />
           ))}
@@ -78,7 +78,7 @@ function ProjectCard({ project, index }: { project: any, index: number }) {
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
       <div 
-        className="w-full md:w-2/3 h-[50vh] md:h-[70vh] overflow-hidden rounded-xl cursor-none relative group"
+        className="w-full md:w-2/3 h-[40vh] md:h-[70vh] overflow-hidden rounded-xl cursor-none relative group"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         data-cursor="hover"
@@ -97,7 +97,7 @@ function ProjectCard({ project, index }: { project: any, index: number }) {
         <p className="text-neutral-500 uppercase tracking-widest text-sm mb-2">
           {project.category}
         </p>
-        <h3 className="text-4xl md:text-6xl font-bold tracking-tighter mb-6 relative overflow-hidden inline-block group">
+        <h3 className="text-3xl md:text-6xl font-bold tracking-tighter mb-4 md:mb-6 relative overflow-hidden inline-block group">
            {project.title}
            <span className="absolute bottom-0 left-0 w-full h-[2px] bg-white transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out" />
         </h3>

@@ -20,6 +20,11 @@ export default function FloatingControls() {
     audioRef.current.loop = true;
     audioRef.current.volume = 0.4; // Soft background volume
 
+    // Attempt to autoplay immediately on mount
+    audioRef.current.play()
+      .then(() => setIsPlaying(true))
+      .catch(err => console.log('Autoplay blocked on load, waiting for user interaction:', err));
+
     const handleFirstInteraction = () => {
       if (audioRef.current && !isPlaying) {
         audioRef.current.play()
@@ -71,13 +76,13 @@ export default function FloatingControls() {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-[999] flex flex-col gap-4">
+    <div className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-[999] flex flex-col gap-3 md:gap-4">
       <motion.button
         onClick={toggleTheme}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         data-cursor="hover"
-        className="w-12 h-12 rounded-full bg-neutral-200 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 flex items-center justify-center shadow-lg border border-neutral-300 dark:border-neutral-700 backdrop-blur-md"
+        className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-neutral-200 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 flex items-center justify-center shadow-lg border border-neutral-300 dark:border-neutral-700 backdrop-blur-md"
         aria-label="Toggle Theme"
       >
         {isDark ? <Sun size={20} /> : <Moon size={20} />}
@@ -88,7 +93,7 @@ export default function FloatingControls() {
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         data-cursor="hover"
-        className="w-12 h-12 rounded-full bg-neutral-200 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 flex items-center justify-center shadow-lg border border-neutral-300 dark:border-neutral-700 backdrop-blur-md"
+        className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-neutral-200 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 flex items-center justify-center shadow-lg border border-neutral-300 dark:border-neutral-700 backdrop-blur-md"
         aria-label="Toggle Audio"
       >
         {isPlaying ? <Volume2 size={20} /> : <VolumeX size={20} />}

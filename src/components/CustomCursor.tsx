@@ -54,7 +54,7 @@ export default function CustomCursor() {
 
   return (
     <motion.div
-      className="fixed top-0 left-0 w-12 h-12 rounded-full pointer-events-none z-[9999]"
+      className="hidden md:block fixed top-0 left-0 w-12 h-12 rounded-full pointer-events-none z-[9999]"
       variants={variants}
       animate={isHovered ? 'hover' : 'default'}
       transition={{

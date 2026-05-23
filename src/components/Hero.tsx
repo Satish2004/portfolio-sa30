@@ -48,24 +48,33 @@ export default function Hero() {
       ref={containerRef}
       className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-white dark:bg-neutral-950 transition-colors duration-500"
     >
-      <div className="absolute inset-0 z-0">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-tr from-purple-900/20 to-blue-900/20 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[800px] md:h-[800px] bg-gradient-to-tr from-purple-900/20 to-blue-900/20 blur-[80px] md:blur-[120px] rounded-full pointer-events-none" />
       </div>
 
       <motion.div 
         style={{ y, opacity }}
-        className="relative z-10 text-center px-4"
+        className="relative z-10 text-center px-4 flex flex-col items-center"
       >
+        <motion.div 
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 1.2, delay: 0.3, ease: "easeOut" }}
+          className="w-48 h-48 md:w-64 md:h-64 mb-8 overflow-hidden animate-blob border-4 border-white/20 dark:border-white/10 relative"
+        >
+          <img src="/profile.png" alt="Satish Chandra" className="w-full h-full object-cover scale-110" />
+        </motion.div>
+
         <p className="text-neutral-500 dark:text-neutral-400 uppercase tracking-[0.3em] mb-6 text-sm font-light">
           Full Stack Developer
         </p>
         <h1 
           ref={textRef}
-          className="text-6xl md:text-8xl lg:text-[10rem] font-bold tracking-tighter leading-none"
+          className="text-5xl sm:text-7xl md:text-8xl lg:text-[10rem] font-bold tracking-tighter leading-none"
         >
           SATISH
         </h1>
-        <h2 className="text-4xl md:text-6xl lg:text-8xl font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-neutral-600 to-neutral-900 dark:from-neutral-200 dark:to-neutral-600 mt-2">
+        <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-neutral-600 to-neutral-900 dark:from-neutral-200 dark:to-neutral-600 mt-2">
           CHANDRA
         </h2>
       </motion.div>

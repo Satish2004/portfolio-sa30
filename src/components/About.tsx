@@ -9,9 +9,9 @@ export default function About() {
   return (
     <section 
       ref={containerRef}
-      className="py-32 px-4 md:px-20 min-h-screen flex items-center relative z-20 transition-colors duration-500"
+      className="py-20 md:py-32 px-4 md:px-20 min-h-screen flex items-center relative z-20 transition-colors duration-500"
     >
-      <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+      <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
