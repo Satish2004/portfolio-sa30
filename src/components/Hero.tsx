@@ -54,16 +54,8 @@ export default function Hero() {
 
       <motion.div 
         style={{ y, opacity }}
-        className="relative z-10 text-center px-4 flex flex-col items-center"
+        className="relative z-10 text-center px-4"
       >
-        <motion.div 
-          initial={{ scale: 0, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 1.2, delay: 0.3, ease: "easeOut" }}
-          className="w-48 h-48 md:w-64 md:h-64 mb-8 overflow-hidden animate-blob border-4 border-white/20 dark:border-white/10 relative"
-        >
-          <img src="/profile.png" alt="Satish Chandra" className="w-full h-full object-cover scale-110" />
-        </motion.div>
 
         <p className="text-neutral-500 dark:text-neutral-400 uppercase tracking-[0.3em] mb-6 text-sm font-light">
           Full Stack Developer
